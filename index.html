@@ -141,10 +141,9 @@
               </div>
 
               <div class="profile-actions">
-                <a href="javascript:void(0)" onclick="generatePDF()" class="btn-primary">Download CV <i
-                    class="bi bi-download"></i>
-                  <a href="mailto:2016.hmooodee@gmail.com" class="btn-secondary"><i class="bi bi-envelope"></i>
-                    Contact</a>
+                <a href="#" class="btn-primary">Download CV <i class="bi bi-download"></i></a> 
+                <a href="mailto:2016.hmooodee@gmail.com" class="btn-secondary"><i class="bi bi-envelope"></i>
+                  Contact</a>
               </div>
 
               <div class="social-connect">
@@ -683,23 +682,7 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-  <script>
-    function generatePDF() {
-      const element = document.getElementById('main');
-      const options = {
-        margin: [10, 10],
-        filename: 'Mohammed_CV.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: {
-          scale: 1,
-          useCORS: true
-        },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-      };
 
-      html2pdf().set(options).from(element).save();
-    }
-  </script>
 </body>
 
 </html>
