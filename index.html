@@ -687,12 +687,16 @@
     function generatePDF() {
       const element = document.getElementById('main');
       const options = {
-        margin: 0.5,
-        filename: 'Mohammed_Portfolio.pdf',
+        margin: [10, 10],
+        filename: 'Mohammed_CV.pdf',
         image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        html2canvas: {
+          scale: 1,
+          useCORS: true
+        },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
       };
+
       html2pdf().set(options).from(element).save();
     }
   </script>
