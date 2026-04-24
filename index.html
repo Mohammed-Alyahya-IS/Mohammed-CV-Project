@@ -142,8 +142,8 @@
               </div>
 
               <div class="profile-actions">
-                <a href="assets/CV.pdf" class="btn-primary" download class="btn-primary"><i class="bi bi-download"></i>
-                  Download CV</a>
+                <a href="javascript:void(0)" onclick="generatePDF()" class="btn-primary">Download CV <i
+                    class="bi bi-download"></i>
                 <a href="mailto:2016.hmooodee@gmail.com" class="btn-secondary"><i class="bi bi-envelope"></i>
                   Contact</a>
               </div>
@@ -489,8 +489,11 @@
                       <h4>Personal portfolio Website</h4>
                     </div>
                     <div class="portfolio-actions">
-                      <a href="assets/img/portfolio/Web.png" class="glightbox portfolio-link">
+                      <a href="assets/img/portfolio/Web.png" class="glightbox portfolio-link"
+                        data-gallery="portfolio-gallery-web">
                         <i class="bi bi-plus-lg"></i>
+                      </a>
+                      <i class="bi bi-plus-lg"></i>
                       </a>
                     </div>
                   </div>
@@ -648,12 +651,12 @@
           </div>
 
         </div>
-<div style="text-align: center; padding-top: 40px; color: rgba(255,255,255,0.5); font-size: 13px;">
-        <p style="margin-bottom: 5px;">&copy; 2026 <strong>Mohammed</strong>. All Rights Reserved.</p>
-        <p>Designed by <a href="https://bootstrapmade.com/" target="_blank"
-            style="color: #ff4a55; text-decoration: none;">BootstrapMade</a></p>
-      </div>
-      
+        <div style="text-align: center; padding-top: 40px; color: rgba(255,255,255,0.5); font-size: 13px;">
+          <p style="margin-bottom: 5px;">&copy; 2026 <strong>Mohammed</strong>. All Rights Reserved.</p>
+          <p>Designed by <a href="https://bootstrapmade.com/" target="_blank"
+              style="color: #ff4a55; text-decoration: none;">BootstrapMade</a></p>
+        </div>
+
       </div>
     </section><!-- /Contact Section -->
 
@@ -680,7 +683,20 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script>
+    function generatePDF() {
+      const element = document.getElementById('main');
+      const options = {
+        margin: 0.5,
+        filename: 'Mohammed_Portfolio.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+      html2pdf().set(options).from(element).save();
+    }
+  </script>
 </body>
 
 </html>
